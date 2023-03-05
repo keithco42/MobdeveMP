@@ -70,16 +70,6 @@
             android:textColor="#FFFFFF"
             android:textSize="50sp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings"
-            android:textColor="#FFFFFF"
-            android:textSize="50sp"
-            android:textStyle="bold" />
-
         <TextView
             android:id="@+id/leaderboards"
             android:layout_width="wrap_content"
@@ -88,12 +78,19 @@
             android:textColor="#FFFFFF"
             android:textSize="50sp"
             android:textStyle="bold" />
-
         <TextView
-            android:id="@+id/exit"
+            android:id="@+id/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exit"
+            android:text="Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About"
             android:textColor="#FFFFFF"
             android:textSize="50sp"
             android:textStyle="bold" />

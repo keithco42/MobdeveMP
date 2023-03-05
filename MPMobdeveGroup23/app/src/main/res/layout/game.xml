@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bgblue"
+            android:background="@drawable/round_db_line"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -44,7 +44,7 @@
             android:layout_width="120dp"
             android:layout_marginStart="20dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bgblue"
+            android:background="@drawable/round_db_line"
             android:gravity="center"
             android:orientation="vertical">
 
