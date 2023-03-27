@@ -7,16 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.group23.mpmobdevegroup3.databinding.ActivityLeaderBoardBinding
 
 class LeaderBoardActivity : AppCompatActivity() {
-    private val playerList: ArrayList<Player> = DataHelper.loadData()
-    private lateinit var recyclerView: RecyclerView
 
+    private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewBinding : ActivityLeaderBoardBinding = ActivityLeaderBoardBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         this.recyclerView = findViewById(R.id.recyclerView)
-        this.recyclerView.adapter = MyAdapter(this.playerList)
         this.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
