@@ -9,7 +9,7 @@ import com.mobdeve.s11.group23.mpmobdevegroup3.databinding.ActivityGameBinding
 
 class GameActivity : AppCompatActivity() {
     lateinit var binding: ActivityGameBinding
-    val vm: MainActivityViewModel by viewModels()
+    val vm: GameActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
