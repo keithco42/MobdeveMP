@@ -17,7 +17,7 @@ class MyAdapter(private val context: Context, private val data: ArrayList<Player
     private val databaseReference = FirebaseDatabase.getInstance().getReference("Users")
     private lateinit var valueEventListener: ValueEventListener
 
-    private val query = databaseReference.orderByChild("wins").limitToLast(10)
+    private val query = databaseReference.orderByChild("wins").limitToFirst(10)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemViewBinding: ItemLayoutBinding = ItemLayoutBinding.inflate(
@@ -36,7 +36,7 @@ class MyAdapter(private val context: Context, private val data: ArrayList<Player
     }
     fun fetchPlayers() {
         // Get the top 10 players by score
-   //     val query = databaseReference.orderByChild("score").limitToLast(10)
+        val query = databaseReference.orderByChild("wins").limitToFirst(10)
 
         valueEventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -45,7 +45,7 @@ class MyAdapter(private val context: Context, private val data: ArrayList<Player
 
                 // Update the adapter with the new list of players
                 data.clear()
-                data.addAll(players)
+                data.addAll(players.reversed())
                 notifyDataSetChanged()
             }
 
@@ -56,6 +56,7 @@ class MyAdapter(private val context: Context, private val data: ArrayList<Player
 
         query.addValueEventListener(valueEventListener)
     }
+
 
     fun stopFetchingPlayers() {
         query.removeEventListener(valueEventListener)
