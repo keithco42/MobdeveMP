@@ -45,10 +45,10 @@ class SignUpActivity : AppCompatActivity() {
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
-            }else{
+            }
+            else {
                 Toast.makeText(this, "Empty Fields Are Not Allowed", Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 }

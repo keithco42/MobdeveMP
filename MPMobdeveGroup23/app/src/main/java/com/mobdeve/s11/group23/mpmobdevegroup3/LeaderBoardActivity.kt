@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.group23.mpmobdevegroup3.databinding.ActivityLeaderBoardBinding
 
 class LeaderBoardActivity : AppCompatActivity() {
-
     private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
