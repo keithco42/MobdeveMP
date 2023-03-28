@@ -8,4 +8,5 @@ class MyViewHolder(private val viewBinding: ItemLayoutBinding): RecyclerView.Vie
         this.viewBinding.Username.text = model.username
         this.viewBinding.Wins.text = model.wins.toString()
     }
+
 }
