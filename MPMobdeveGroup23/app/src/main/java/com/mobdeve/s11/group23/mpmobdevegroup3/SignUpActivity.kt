@@ -29,9 +29,10 @@ class SignUpActivity : AppCompatActivity() {
             if(firstname.isNotEmpty() && lastname.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
 
                 firebaseAuth = FirebaseAuth.getInstance()
+                firebaseAuth.signOut()
                 firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
                     val intent = Intent(applicationContext, MainActivity::class.java)
-                    this.startActivity(intent);
+                    this.startActivity(intent)
                     database = FirebaseDatabase.getInstance().getReference("Users")
                     val User = Player(firstname, lastname, username, email, password, wins = 0)
 

@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        viewBinding.forgotpassword.setOnClickListener{
+            val intent = Intent(applicationContext, ForgotPasswordActivity::class.java)
+
+            this.startActivity(intent);
+        }
         viewBinding.signUpButton.setOnClickListener{
             val intent = Intent(applicationContext, SignUpActivity::class.java)
 

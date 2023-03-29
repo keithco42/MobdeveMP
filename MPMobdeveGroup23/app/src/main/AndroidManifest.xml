@@ -15,6 +15,9 @@
             android:name=".About"
             android:exported="false" />
         <activity
+        android:name=".ForgotPasswordActivity"
+        android:exported="false" />
+        <activity
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
