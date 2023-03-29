@@ -5,20 +5,35 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.mobdeve.s11.group23.mpmobdevegroup3.databinding.ActivityGameBinding
 
 class GameActivity : AppCompatActivity() {
     lateinit var binding: ActivityGameBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var database: DatabaseReference
+    var score = 0
+    private var aiwin = 0
     val vm: GameActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        firebaseAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        database.child(firebaseAuth.currentUser!!.uid).get().addOnSuccessListener {
+            val username = it.child("username").value
+            var score = it.child("wins").value
+            binding.score.text =  score.toString()
+            binding.gameusername.text =  username.toString()
+        }
         vm.board.observe(this, updateBoard)
         bindClickEvents()
     }
+
 
     val updateBoard = Observer<Board> { board ->
         binding.square0.setImageResource(board.topLeft.res)
@@ -33,10 +48,17 @@ class GameActivity : AppCompatActivity() {
         when (board.boardState) {
             BoardState.STAR_WON -> {
                 setupBoard(true)
+                score++
+                database = FirebaseDatabase.getInstance().getReference("Users")
+                database.child(firebaseAuth.currentUser!!.uid).child("wins").setValue(score)
+
+                binding.score.text =  score.toString()
                 showWinningMessage("Cross Won!")
             }
             BoardState.CIRCLE_WON -> {
                 setupBoard(true)
+                aiwin++
+                binding.aiscore.text =  aiwin.toString()
                 showWinningMessage("Circles Won!")
             }
             BoardState.DRAW -> {
@@ -93,4 +115,5 @@ class GameActivity : AppCompatActivity() {
     private fun hideWinningMessage() {
         binding.textWinningMessage.visibility = View.GONE
     }
+
 }
