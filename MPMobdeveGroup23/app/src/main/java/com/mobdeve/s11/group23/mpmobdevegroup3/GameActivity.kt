@@ -14,7 +14,7 @@ class GameActivity : AppCompatActivity() {
     lateinit var binding: ActivityGameBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
-
+    var score = 0
     private var aiwin = 0
     val vm: GameActivityViewModel by viewModels()
 
