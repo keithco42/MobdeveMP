@@ -14,7 +14,7 @@ class GameActivity : AppCompatActivity() {
     lateinit var binding: ActivityGameBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
-    var score = 0
+
     private var aiwin = 0
     val vm: GameActivityViewModel by viewModels()
 
@@ -48,11 +48,16 @@ class GameActivity : AppCompatActivity() {
         when (board.boardState) {
             BoardState.STAR_WON -> {
                 setupBoard(true)
-                score++
-                database = FirebaseDatabase.getInstance().getReference("Users")
-                database.child(firebaseAuth.currentUser!!.uid).child("wins").setValue(score)
+                database.child(firebaseAuth.currentUser!!.uid).get().addOnSuccessListener {
 
-                binding.score.text =  score.toString()
+                    val currentWins = it.child("wins").getValue(Int::class.java)
+// Increment the value of "wins" by 1
+                    val score = currentWins?.plus(1)
+                    database = FirebaseDatabase.getInstance().getReference("Users")
+                    database.child(firebaseAuth.currentUser!!.uid).child("wins").setValue(score)
+                    binding.score.text =  score.toString()
+                }
+
                 showWinningMessage("Cross Won!")
             }
             BoardState.CIRCLE_WON -> {
