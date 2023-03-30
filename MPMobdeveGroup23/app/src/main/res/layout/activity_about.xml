@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:justificationMode="inter_word"
         android:text="The application is a game called tic tac toe.The game is played on a 3X3 grid that enables
-players to take turns marking the spaces with an X or O.To win the game a player must successfully
+players to take turns against an AI bot. To win the game a player must successfully
 place their mark in a horizontal, vertical or diagonal manner. It is a game of strategy and tactics."
         android:textColor="@color/white"
         android:layout_marginRight="10dp"

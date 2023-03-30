@@ -3,7 +3,6 @@ package com.mobdeve.s11.group23.mpmobdevegroup3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -31,12 +30,11 @@ class SettingActivity : AppCompatActivity() {
             viewBinding.lastname.setText(lastname.toString())
         }
 
-
-
         viewBinding.signout.setOnClickListener{
             firebaseAuth = FirebaseAuth.getInstance()
             firebaseAuth.signOut()
             val intent = Intent(applicationContext, MainActivity::class.java)
+
             this.startActivity(intent);
         }
     }

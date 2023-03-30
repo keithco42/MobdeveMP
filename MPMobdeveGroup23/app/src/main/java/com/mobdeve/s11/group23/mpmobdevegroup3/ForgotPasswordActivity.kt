@@ -1,12 +1,12 @@
 package com.mobdeve.s11.group23.mpmobdevegroup3
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.mobdeve.s11.group23.mpmobdevegroup3.databinding.ActivityForgotPasswordBinding
+
 class ForgotPasswordActivity : AppCompatActivity()  {
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,6 @@ class ForgotPasswordActivity : AppCompatActivity()  {
                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
             }
-
-            }
+        }
     }
 }

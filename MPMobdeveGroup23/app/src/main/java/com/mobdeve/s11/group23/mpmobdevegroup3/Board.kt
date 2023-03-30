@@ -58,7 +58,7 @@ data class Board(private val board: MutableMap<Cell, CellState> = mutableMapOf()
     val boardState: BoardState
         get() {
             return when {
-                stateWon(CellState.Star) -> BoardState.STAR_WON
+                stateWon(CellState.Cross) -> BoardState.CROSS_WON
                 stateWon(CellState.Circle) -> BoardState.CIRCLE_WON
                 board.size < 9 -> BoardState.INCOMPLETE
                 else -> BoardState.DRAW

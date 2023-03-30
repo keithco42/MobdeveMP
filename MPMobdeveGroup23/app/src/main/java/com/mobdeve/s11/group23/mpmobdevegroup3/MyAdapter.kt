@@ -2,7 +2,6 @@ package com.mobdeve.s11.group23.mpmobdevegroup3
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -57,9 +56,7 @@ class MyAdapter(private val context: Context, private val data: ArrayList<Player
         query.addValueEventListener(valueEventListener)
     }
 
-
     fun stopFetchingPlayers() {
         query.removeEventListener(valueEventListener)
     }
-
 }

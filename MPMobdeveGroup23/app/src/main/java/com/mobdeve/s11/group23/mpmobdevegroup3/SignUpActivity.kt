@@ -43,24 +43,13 @@ class SignUpActivity : AppCompatActivity() {
                         viewBinding.email.text.clear()
                         viewBinding.password.text.clear()
 
-
-
-
                         Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
-
-
-
-
                     }.addOnFailureListener {
                         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                     }
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
-
-
-
-
             }
             else {
                 Toast.makeText(this, "Empty Fields Are Not Allowed", Toast.LENGTH_SHORT).show()

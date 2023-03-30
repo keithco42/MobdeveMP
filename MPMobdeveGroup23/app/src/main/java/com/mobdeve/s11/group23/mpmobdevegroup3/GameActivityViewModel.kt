@@ -12,7 +12,7 @@ class GameActivityViewModel : ViewModel() {
     }
 
     fun boardClicked(cell: Cell) {
-        if (mainBoard.setCell(cell, CellState.Star)) {
+        if (mainBoard.setCell(cell, CellState.Cross)) {
             updateBoard()
             if (mainBoard.boardState == BoardState.INCOMPLETE) {
                 aiTurn()
@@ -22,7 +22,7 @@ class GameActivityViewModel : ViewModel() {
 
     private fun aiTurn() {
         val circleWinningCell = mainBoard.findNextWinningMove(CellState.Circle)
-        val startWinningCell = mainBoard.findNextWinningMove(CellState.Star)
+        val startWinningCell = mainBoard.findNextWinningMove(CellState.Cross)
         when {
             // If the AI can win, place a circle in that spot
             circleWinningCell != null -> mainBoard.setCell(circleWinningCell, CellState.Circle)

@@ -2,7 +2,7 @@ package com.mobdeve.s11.group23.mpmobdevegroup3
 
 enum class BoardState {
     INCOMPLETE,
-    STAR_WON,
+    CROSS_WON,
     CIRCLE_WON,
     DRAW
 }
