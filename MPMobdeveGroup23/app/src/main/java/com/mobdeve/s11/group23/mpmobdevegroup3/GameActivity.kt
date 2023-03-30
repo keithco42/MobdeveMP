@@ -22,16 +22,30 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if(savedInstanceState != null) {
+            score = savedInstanceState.getInt("score")
+            binding.score.text = score.toString()
+        } else {
+            // initialize score to 0 if savedInstanceState is null
+            score = 0
+        }
+
         firebaseAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(firebaseAuth.currentUser!!.uid).get().addOnSuccessListener {
             val username = it.child("username").value
-            var score = it.child("wins").value
+            score = it.child("wins").value.toString().toInt()
             binding.score.text =  score.toString()
             binding.gameusername.text =  username.toString()
         }
         vm.board.observe(this, updateBoard)
         bindClickEvents()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("score", score)
     }
 
 
