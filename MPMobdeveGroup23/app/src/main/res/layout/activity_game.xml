@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@drawable/round_db_line"
             android:gravity="center"
@@ -30,8 +30,6 @@
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:text="Username" />
-
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -68,11 +66,10 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_marginStart="20dp"
             android:layout_height="wrap_content"
             android:background="@drawable/round_db_line"
@@ -122,8 +119,11 @@
                     android:textSize="40sp"
                     android:textStyle="bold"
                     android:text="0" />
+
             </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -193,7 +193,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.25" />
 
-
         <ImageView
             android:id="@+id/square_5"
             android:layout_width="0dp"
@@ -215,7 +214,6 @@
             app:layout_constraintEnd_toStartOf="@+id/square_4"
             app:layout_constraintTop_toBottomOf="@+id/square_4"
             app:layout_constraintWidth_percent="0.25" />
-
 
         <ImageView
             android:id="@+id/square_7"
@@ -301,5 +299,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Cross Won!" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>

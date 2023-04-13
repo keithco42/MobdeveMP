@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
         viewBinding.loginButton.setOnClickListener {
             val email = viewBinding.loginemail.text.toString()
             val password = viewBinding.loginpassword.text.toString()
